@@ -22,19 +22,23 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'hermelen-one-page' ); ?></a>
-
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
 			<?php
+			if ( is_front_page() ) :
+				get_template_part( 'template-parts/one-page-nav', 'One page nav' );
+				else :
+					get_template_part( 'template-parts/page-nav', 'Detail page nav' );
+				endif; ?>
+			<?php
 			the_custom_logo();
-			if ( is_front_page() && is_home() ) :
+			if ( is_front_page() ) :
 				?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
 				<?php
 			else :
 				?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+				<p class="site-title"><?php bloginfo( 'name' ); ?></p>
 				<?php
 			endif;
 			$hermelen_one_page_description = get_bloginfo( 'description', 'display' );
@@ -43,13 +47,6 @@
 				<p class="site-description"><?php echo $hermelen_one_page_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
-		<?php
-		if ( is_front_page() ) :
-      get_template_part( 'template-parts/one-page-nav', 'One page nav' );
-		else :
-			get_template_part( 'template-parts/page-nav', 'Detail page nav' );
-		endif; ?>
-		<?php // get_template_part( 'template-parts/page-nav', 'page nav' ); ?>
 	</header><!-- #masthead -->
 
 <div id="content" class="site-content">
