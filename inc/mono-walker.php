@@ -1,4 +1,7 @@
 <?php
+// thanks to:
+// https://medium.com/@colirpixoil/cr%C3%A9er-un-site-one-page-propre-avec-wordpress-e817b3ab2a6f
+// https://wabeo.fr/construire-walker-wordpress/
 class mono_walker extends Walker_Nav_Menu{
 	function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
     // this create html structure

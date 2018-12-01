@@ -43,3 +43,13 @@
 				<p class="site-description"><?php echo $hermelen_one_page_description; /* WPCS: xss ok. */ ?></p>
 			<?php endif; ?>
 		</div><!-- .site-branding -->
+		<?php
+		if ( is_front_page() ) :
+      get_template_part( 'template-parts/one-page-nav', 'One page nav' );
+		else :
+			get_template_part( 'template-parts/page-nav', 'Detail page nav' );
+		endif; ?>
+		<?php // get_template_part( 'template-parts/page-nav', 'page nav' ); ?>
+	</header><!-- #masthead -->
+
+<div id="content" class="site-content">
