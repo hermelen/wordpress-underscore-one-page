@@ -23,13 +23,15 @@
 <body <?php body_class(); ?>>
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
-		<div class="site-branding">
+		<div class="site-main-nav">
 			<?php
 			if ( is_front_page() ) :
 				get_template_part( 'template-parts/one-page-nav', 'One page nav' );
 				else :
 					get_template_part( 'template-parts/page-nav', 'Detail page nav' );
 				endif; ?>
+		</div>	
+		<div class="site-branding">
 			<?php
 			the_custom_logo();
 			if ( is_front_page() ) :
