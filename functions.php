@@ -117,12 +117,26 @@ function hermelen_one_page_widgets_init() {
 add_action( 'widgets_init', 'hermelen_one_page_widgets_init' );
 
 /**
- * Enqueue scripts and styles.
- */
+* Dequeue jquery for !admin and enqueue new jquery scripts.
+*/
+function my_jquery_enqueue() {
+  wp_deregister_script('jquery');
+  wp_register_script('jquery', get_template_directory_uri() . '/node_modules/jquery/dist/jquery.min.js', false, null);
+  wp_enqueue_script('jquery');
+}
+if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
+
+/**
+* Enqueue scripts and styles.
+*/
 function hermelen_one_page_scripts() {
 	wp_enqueue_style( 'hermelen-one-page-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'hermelen-one-page-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'calendar', get_template_directory_uri() . '/js/calendar-starting-monday.min.js', array(), '20151215', true );
+
+	wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'hermelen-one-page-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 

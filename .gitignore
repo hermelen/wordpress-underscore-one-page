@@ -1,3 +1,4 @@
 *.php~
 trash.php
 .sass-cache
+/node_modules

@@ -1,0 +1,29 @@
+{
+  "name": "hermelen-one-page",
+  "version": "1.0.0",
+  "description": "theme one page based on _s",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hermelen/wordpress-underscore-one-page.git"
+  },
+  "keywords": [
+    "one",
+    "page",
+    "theme",
+    "wordpress",
+    "hermelen"
+  ],
+  "author": "Hermelen PERIS",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hermelen/wordpress-underscore-one-page/issues"
+  },
+  "homepage": "https://github.com/hermelen/wordpress-underscore-one-page#readme",
+  "dependencies": {
+    "jquery": "^3.3.1"
+  }
+}

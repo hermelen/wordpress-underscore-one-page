@@ -1,6 +1,6 @@
 <?php
 /**
-* Template Name: Hermelen Page
+* Template Name: Hermelen Page Room
 *
 */
 get_header();?>
@@ -23,6 +23,7 @@ get_header();?>
 		?>
 
 		</main><!-- #main -->
+    <?php get_sidebar(); ?>
 	</div><!-- #primary -->
 
 <?php
