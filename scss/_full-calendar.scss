@@ -1,0 +1,13 @@
+#calendar-widget {
+  .fc-view-container table {
+    margin: 0;
+    // .fc-content-skeleton{
+    //   td.booked {
+    //       background-color: red;
+    //   }
+    // }
+    .fc-time{
+      display : none;
+    }
+  }
+}

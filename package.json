@@ -24,6 +24,8 @@
   },
   "homepage": "https://github.com/hermelen/wordpress-underscore-one-page#readme",
   "dependencies": {
-    "jquery": "^3.3.1"
+    "fullcalendar": "^3.9.0",
+    "jquery": "^3.3.1",
+    "moment": "^2.22.2"
   }
 }
