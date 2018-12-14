@@ -19,8 +19,6 @@ class mono_walker extends Walker_Nav_Menu{
     $id = $id ? ' id="' . esc_attr( $id ) . '"' : '';
 
     $output .= $indent . '<li' . $id . $value . $class_names .'>';
-
-
     // this create href slugifying title
     $atts = array();
 

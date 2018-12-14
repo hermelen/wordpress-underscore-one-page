@@ -15,7 +15,9 @@ if( $menu_items ) {
           $args = array('p' => $sub_menu_item->object_id,'post_type' => 'any');
           global $wp_query;
           $wp_query = new WP_Query($args);
-          if ($sub_menu_item->menu_item_parent == $menu_item->ID) : ?>
+          if ($sub_menu_item->menu_item_parent == $menu_item->ID) :
+            // ATTENTION: créer un template par défaut si le template n'existe pas
+            ?>
             <section <?php post_class('sep'); ?> id="<?php echo sanitize_title($sub_menu_item->title); ?>">
               <?php
               if ( have_posts() ):
