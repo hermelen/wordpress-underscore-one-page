@@ -7,6 +7,9 @@
  * @package hermelen-one-page
  */
 
+
+// echo(exec("whoami"));
+
 if ( ! function_exists( 'hermelen_one_page_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
