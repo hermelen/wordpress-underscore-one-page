@@ -8,9 +8,11 @@ $(document).ready(function(){
       // }
     ];
     $.each(bookedDays, function(index, value){
+      endDate = new Date(value[1].thedate);
+      endDate = endDate.setDate(endDate.getDate() + 1);
       eventsArray.push({
         start: new Date(value[0].thedate),
-        end: new Date(value[1].thedate),
+        end: endDate,
         title: value[2]
       })
     })
