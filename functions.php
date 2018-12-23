@@ -119,6 +119,8 @@ function hermelen_one_page_widgets_init() {
 }
 add_action( 'widgets_init', 'hermelen_one_page_widgets_init' );
 
+
+add_post_type_support( 'page', 'excerpt' );
 /**
 * Dequeue jquery for !admin and enqueue new jquery scripts.
 */

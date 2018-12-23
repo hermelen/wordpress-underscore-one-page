@@ -11,6 +11,10 @@
  *
  * @package hermelen-one-page
  */
+$page_id = get_the_ID();
+
+// debug($children);
+
 ?>
 	<div id="primary" class="content-area">
 
@@ -23,21 +27,8 @@
 						the_title( '<h2 class="entry-title">', '</h2>' );
 					else :
 						the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-					endif;
-
-					if ( 'post' === get_post_type() ) :
-						?>
-						<div class="entry-meta">
-							<?php
-							hermelen_one_page_posted_on();
-							hermelen_one_page_posted_by();
-							?>
-						</div><!-- .entry-meta -->
-					<?php endif; ?>
+					endif; ?>
 				</header><!-- .entry-header -->
-
-				<?php hermelen_one_page_post_thumbnail(); ?>
-
 				<div class="entry-content">
 					<?php
 					the_content( sprintf(
@@ -59,6 +50,27 @@
 					) );
 					?>
 				</div><!-- .entry-content -->
+				<div class="children-data"> <?php
+				// require_once(get_template_directory() . '/inc/micro-functions.php');
+	      $children = get_children(get_the_ID());
+				// debug($children);
+					if (isset($children) && !empty($children)) : ?>
+					<ul>
+						<?php
+						foreach ($children as $child) : ?>
+						<li>
+							<a href="<?= $child->guid ?>">
+								<h4><?= $child->post_title ?></h4>
+								<p><?= $child->post_excerpt ?></p>
+							</a>
+						</li>
+						<?php
+						endforeach; ?>
+					</ul>
+						<?php
+					endif
+				?>
+				</div>
 
 		<?php endwhile; // End of the loop.
 		?>

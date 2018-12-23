@@ -6,10 +6,14 @@ if( $menu_items ) {
     global $wp_query;
     $wp_query = new WP_Query($args);
     if ($menu_item->post_parent == 0) : ?>
-      <section <?php post_class('sep'); ?> id="<?php echo sanitize_title($menu_item->title); ?>">
+      <section <?php post_class('parent'); ?> id="<?php echo sanitize_title($menu_item->title); ?>">
         <?php
         if ( have_posts() ):
-          include(locate_template('hermelen-template-section-'.sanitize_title($menu_item->title).'.php'));
+          if ( file_exists( locate_template('hermelen-template-section-'.sanitize_title($menu_item->title).'.php' ) ) ):
+            include(locate_template('hermelen-template-section-'.sanitize_title($menu_item->title).'.php'));
+          else:
+            include(locate_template('hermelen-template-section-default.php'));
+          endif;
         endif;
         foreach ($menu_items as $sub_menu_item ) :
           $args = array('p' => $sub_menu_item->object_id,'post_type' => 'any');
@@ -18,7 +22,7 @@ if( $menu_items ) {
           if ($sub_menu_item->menu_item_parent == $menu_item->ID) :
             // ATTENTION: créer un template par défaut si le template n'existe pas
             ?>
-            <section <?php post_class('sep'); ?> id="<?php echo sanitize_title($sub_menu_item->title); ?>">
+            <section <?php post_class('child'); ?> id="<?php echo sanitize_title($sub_menu_item->title); ?>">
               <?php
               if ( have_posts() ):
                 include(locate_template('hermelen-template-detail-section.php'));

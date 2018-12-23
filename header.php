@@ -30,7 +30,10 @@
 				else :
 					get_template_part( 'template-parts/page-nav', 'Detail page nav' );
 				endif; ?>
-		</div>	
+		</div>
+		<div class="header-slider">
+			<?php echo do_shortcode('[metaslider id="105"]'); ?>
+		</div><!-- .header-slider -->
 		<div class="site-branding">
 			<?php
 			the_custom_logo();

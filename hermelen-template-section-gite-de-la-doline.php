@@ -12,21 +12,13 @@
  * @package hermelen-one-page
  */
 ?>
-	<div class="primary" class="content-area">
-		<main class="main" class="site-main">
+	<div id="primary" class="content-area">
 
 		<?php
 		while ( have_posts() ) :
 			the_post(); ?>
-
-			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
 					<?php
-					if ( is_singular() ) :
-						the_title( '<h2 class="entry-title">', '</h2>' );
-					else :
-						the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-					endif;
 
 					if ( 'post' === get_post_type() ) :
 						?>
@@ -63,15 +55,9 @@
 					?>
 				</div><!-- .entry-content -->
 
-				<footer class="entry-footer">
-					<?php hermelen_one_page_entry_footer(); ?>
-				</footer><!-- .entry-footer -->
-			</article><!-- #post-<?php the_ID(); ?> -->
-
 		<?php endwhile; // End of the loop.
 		?>
 
-		</main><!-- #main -->
 	</div><!-- #primary -->
 
 <?php
