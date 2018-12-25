@@ -55,18 +55,19 @@ $page_id = get_the_ID();
 	      $children = get_children(get_the_ID());
 				// debug($children);
 					if (isset($children) && !empty($children)) : ?>
-					<ul>
+					<div class="slider" data-slick='{ "slidesToShow": <?php echo count($children) ?>, "slidesToScroll": <?php echo count($children) ?>	}'>
 						<?php
 						foreach ($children as $child) : ?>
-						<li>
-							<a href="<?= $child->guid ?>">
-								<h4><?= $child->post_title ?></h4>
-								<p><?= $child->post_excerpt ?></p>
-							</a>
-						</li>
+						<div>
+					  	<a href="<?= $child->guid ?>">
+					  		<h4><?= $child->post_title ?></h4>
+					  		<p><?= $child->post_excerpt ?></p>
+					  	</a>
+					  </div>
 						<?php
 						endforeach; ?>
-					</ul>
+          </div>
+
 						<?php
 					endif
 				?>
