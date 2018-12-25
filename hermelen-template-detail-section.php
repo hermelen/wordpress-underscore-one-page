@@ -16,7 +16,7 @@ $page_id = get_the_ID();
 // debug($children);
 
 ?>
-	<div id="primary" class="content-area">
+	<div id="primary" class="content-area">toto
 
 		<?php
 		while ( have_posts() ) :
@@ -55,20 +55,27 @@ $page_id = get_the_ID();
 	      $children = get_children(get_the_ID());
 				// debug($children);
 					if (isset($children) && !empty($children)) : ?>
-					<div class="slider" data-slick='{ "slidesToShow": <?php echo count($children) ?>, "slidesToScroll": <?php echo count($children) ?>	}'>
-						<?php
-						foreach ($children as $child) : ?>
-						<div>
-					  	<a href="<?= $child->guid ?>">
-					  		<h4><?= $child->post_title ?></h4>
-					  		<p><?= $child->post_excerpt ?></p>
-					  	</a>
-					  </div>
-						<?php
-						endforeach; ?>
-          </div>
-
-						<?php
+					<!-- <div class="slick-slider">
+					  <div style="background-color: white"><h4>1</h4></div>
+					  <div style="background-color: black"><h4>2</h4></div>
+					  <div style="background-color: grey"><h4>3</h4></div>
+					</div> -->
+					<div class="slider-container">
+						<div class="slick-slider">
+							<?php
+							foreach ($children as $child) : ?>
+							<div>
+								<img src="<?php echo get_the_post_thumbnail_url($child->ID) ?>" alt="<?= $child->post_title ?>">								
+								<a href="<?= $child->guid ?>">
+									<h4><?= $child->post_title ?></h4>
+									<p><?= $child->post_excerpt ?></p>
+								</a>
+							</div>
+							<?php
+							endforeach ?>
+						</div>
+					</div>
+					<?php
 					endif
 				?>
 				</div>

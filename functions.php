@@ -136,11 +136,11 @@ if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
 * Enqueue scripts and styles.
 */
 function hermelen_one_page_scripts() {
-	 // css for full-calendar style
-	wp_enqueue_style( 'full-calendar-style', get_template_directory_uri() . '/node_modules/fullcalendar/dist/fullcalendar.min.css');
 	// css for slick-slider
 	wp_enqueue_style( 'slick-slider-style', get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick.css');
 	wp_enqueue_style( 'slick-slider-theme-style', get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick-theme.css');
+	// css for full-calendar style
+	wp_enqueue_style( 'full-calendar-style', get_template_directory_uri() . '/node_modules/fullcalendar/dist/fullcalendar.min.css');
 	// css hermelen-one-page-style
 	wp_enqueue_style( 'hermelen-one-page-style', get_stylesheet_uri() );
 
@@ -148,13 +148,13 @@ function hermelen_one_page_scripts() {
 	// default underscores scripts
 	wp_enqueue_script( 'hermelen-one-page-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 	wp_enqueue_script( 'hermelen-one-page-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
+	// script for slick-slider
+	wp_enqueue_script( 'slick-slider-scripts', get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick.min.js', array(), '20181224', true );
 	// momentjs for full-calendar
 	wp_enqueue_script( 'moment', get_template_directory_uri() . '/node_modules/moment/min/moment.min.js', array(), '20181211', true );
 	// script for full-calendar
 	wp_enqueue_script( 'full-calendar-scripts', get_template_directory_uri() . '/node_modules/fullcalendar/dist/fullcalendar.min.js', array(), '20181211', true );
 	wp_enqueue_script( 'full-calendar-locale-scripts', get_template_directory_uri() . '/node_modules/fullcalendar/dist/locale/fr.js', array(), '20181211', true );
-	// script for slick-slider
-	wp_enqueue_script( 'slick-slider-scripts', get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick.min.js', array(), '20181224', true );
 	// custom hermelen scripts
 	wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array(), '20181115', true );
 

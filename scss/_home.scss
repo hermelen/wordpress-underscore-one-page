@@ -20,6 +20,17 @@ h2.entry-title {
   margin: 0;
 }
 
+div.slider-container {
+  // display: flex;
+  // justify-content: center;
+  .slick-slider {
+    display: none;
+  }
+  .slick-initialized {
+    display: block;
+  }
+}
+
 section.parent {
   background-color: $rgba-primary-1;
   section.child {

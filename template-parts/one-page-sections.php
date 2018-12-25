@@ -15,23 +15,33 @@ if( $menu_items ) {
             include(locate_template('hermelen-template-section-default.php'));
           endif;
         endif;
+        $sub_menu_list = [];
         foreach ($menu_items as $sub_menu_item ) :
-          $args = array('p' => $sub_menu_item->object_id,'post_type' => 'any');
-          global $wp_query;
-          $wp_query = new WP_Query($args);
-          if ($sub_menu_item->menu_item_parent == $menu_item->ID) :
-            // ATTENTION: créer un template par défaut si le template n'existe pas
-            ?>
-            <section <?php post_class('child'); ?> id="<?php echo sanitize_title($sub_menu_item->title); ?>">
-              <?php
-              if ( have_posts() ):
-                include(locate_template('hermelen-template-detail-section.php'));
-              endif; ?>
-            </section> <?php
+          if ($sub_menu_item->post_parent != 0) :
+            array_push($sub_menu_list, sanitize_title($sub_menu_item->title));
+            $args = array('p' => $sub_menu_item->object_id,'post_type' => 'any');
+            global $wp_query;
+            $wp_query = new WP_Query($args);
+            if ($sub_menu_item->menu_item_parent == $menu_item->ID) :
+              // ATTENTION: créer un template par défaut si le template n'existe pas
+              ?>
+              <section <?php post_class('child'); ?> id="<?php echo sanitize_title($sub_menu_item->title); ?>">
+                <?php
+                if ( have_posts() ):
+                  include(locate_template('hermelen-template-detail-section.php'));
+                endif; ?>
+              </section> <?php
+            endif;
           endif;
-        endforeach; ?>
+        endforeach;
+        ?>
       </section><?php
     endif;
   endforeach;
+  $sub_menu_list = json_encode($sub_menu_list);
 };
 ?>
+
+<script type="text/javascript">
+  subMenuList = <?= $sub_menu_list ?>
+</script>

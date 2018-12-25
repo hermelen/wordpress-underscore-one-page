@@ -1,5 +1,33 @@
 $(document).ready(function(){
-  $('.slider').slick();
+
+  if (typeof subMenuList !== 'undefined') {
+    // console.log(subMenuList);
+    $.each(subMenuList, function(index, value){
+      padding = 35;
+      var sliderWidth = $('section#'+value).width() - (padding*2);
+      $('section#'+value+' div.slider-container').css({
+        'width' : sliderWidth,
+        'margin' : padding
+      });
+    })
+  }
+
+  $('.slick-slider').slick({
+    infinite: true,
+    speed: 300,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    // slidesToShow: 1,
+    // centerMode: true,
+    // variableWidth: true,
+    // prevArrow: $('.prev_box'),
+    // nextArrow: $('.next_box'),
+    // infinite: true,
+  });
+
+  // ---------------------- display calendar ---------------------------------->
+
   $(function() {
     if (typeof bookedDays !== 'undefined') {
       var eventsArray = [
