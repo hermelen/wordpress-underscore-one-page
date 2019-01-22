@@ -1,15 +1,22 @@
 $(document).ready(function(){
 
   if (typeof subMenuList !== 'undefined') {
-    // console.log(subMenuList);
     $.each(subMenuList, function(index, value){
-      padding = 35;
+      var windowWidth = $(window).width();
+      if ( windowWidth > 540) {
+        var padding = windowWidth / 30;
+      } else {
+        var padding = 0;
+      }
       var sliderWidth = $('section#'+value).width() - (padding*2);
       $('section#'+value+' div.slider-container').css({
         'width' : sliderWidth,
         'margin' : padding
       });
-    })
+      $('section#'+value+' img').css({
+        'width' : sliderWidth,
+      });
+    });
   }
 
   $('.slick-slider').slick({
@@ -18,6 +25,12 @@ $(document).ready(function(){
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    prevArrow: '<i class="fas fa-chevron-left slick-prev-custom"></i>',
+    nextArrow: '<i class="fas fa-chevron-right slick-next-custom"></i>',
+    speed: 600
+    // appendArrows: $('.slick-list')
     // slidesToShow: 1,
     // centerMode: true,
     // variableWidth: true,
@@ -26,7 +39,17 @@ $(document).ready(function(){
     // infinite: true,
   });
 
-  // ---------------------- display calendar ---------------------------------->
+
+  $('div.slick-slider').each(function( index ) {
+    imgSliderWidth = $(this).parent('div.slider-container').width();
+    console.log(imgSliderWidth);
+    $(this).css({
+      'margin': '0',
+      'width': imgSliderWidth
+    });
+  });
+
+  // ---------------------- display calendar ----------------------------------
 
   $(function() {
     if (typeof bookedDays !== 'undefined') {
@@ -50,5 +73,35 @@ $(document).ready(function(){
       })
     }
   });
+
+  // ----------------- manage ul expand on hover in mobile display---------------
+  function navbarMobileDisplay(){
+    var windowWidth = $(window).width();
+    if ( windowWidth < 960 ) {
+      $('.menu-item-has-children').hover(function(){
+        var count = $(this).find('ul.sub-menu')['0'].childElementCount;
+        var liHeight = $(this).height();     
+        $(this).css({
+          'padding-top': liHeight / 2,
+          'padding-bottom': liHeight * count + liHeight / 2
+        })
+      })    
+      var clicked = false;
+      $('li#bars').click(function(){
+        clicked = !clicked;
+        if (clicked == true) {
+          $(this).parent().find('>li.menu-item').each(function(){
+            $(this).css('display', 'flex');
+          });
+        } else {
+          $(this).parent().find('>li.menu-item').each(function(){
+            $(this).css('display', 'none');
+          });
+        }
+      })
+    }
+  }
+  navbarMobileDisplay();
+
 
 })

@@ -131,12 +131,12 @@ function my_jquery_enqueue() {
 }
 if (!is_admin()) add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
 // add_action("wp_enqueue_scripts", "my_jquery_enqueue", 11);
-
 /**
 * Enqueue scripts and styles.
 */
 function hermelen_one_page_scripts() {
 	// css for slick-slider
+	wp_enqueue_style( 'fontawesome-style', 'https://use.fontawesome.com/releases/v5.6.3/css/all.css');
 	wp_enqueue_style( 'slick-slider-style', get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick.css');
 	wp_enqueue_style( 'slick-slider-theme-style', get_template_directory_uri() . '/node_modules/slick-carousel/slick/slick-theme.css');
 	// css for full-calendar style

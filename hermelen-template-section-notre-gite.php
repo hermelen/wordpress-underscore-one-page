@@ -12,7 +12,7 @@
  * @package hermelen-one-page
  */
 ?>
-	<div class="primary" class="content-area">
+	<div class="master content-area">
 		<main class="main" class="site-main">
 
 		<?php

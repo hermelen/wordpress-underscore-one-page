@@ -1,0 +1,116 @@
+// //--------------------------- initialisation -------------------------
+div.slider-container {
+  .slick-slider {
+    display: none;
+  }
+  .slick-initialized {
+    display: block;
+  }
+}
+
+div.slider-container {
+  div.slick-slider {
+    position: relative;
+    i {
+      color: rgba(0, 0, 0, 0.6);
+      position: absolute;
+      font-size: 1.5em;
+      top: 45%;
+      z-index:1;
+      opacity: 0;
+      padding: 0.5em 0.7em;
+      border-radius: 50%;
+    }
+    i.slick-prev-custom {
+      left: 0.1%;
+    }
+    i.slick-next-custom {
+      right: 0.1%;
+    }
+    div.single-slide-container {
+      position: relative;
+      div.all-content {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition-duration: 0.5s;
+        width: 100%;
+        background: linear-gradient( 360deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.7) 60% );
+        div.text-content {
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-bottom: 5%;
+          h3, p {
+            width: 90%;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+          }
+          h3 {
+            padding-top: 0.5em;
+            color: rgba(0, 0, 0, 1);
+          }
+          p {
+            color: rgba(0, 0, 0, 1);
+          }
+        }
+      }
+    }
+  }  
+  div.slick-slider:hover {
+    i{
+      opacity: 1;
+      background-color: rgba(255, 255, 255, 0);
+      transition-duration: 0.5s;
+    }
+    i:hover{
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+    div.single-slide-container {
+      position: relative;
+      div.all-content {
+        div.text-content {
+          
+        }
+      }
+    }
+  }  
+}
+
+@media screen and(min-width: 960px) {
+  div.slider-container {
+    div.slick-slider {
+      div.single-slide-container {
+        div.all-content {
+          background: linear-gradient( 360deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.0) 60% );
+          div.text-content {
+            h3 {
+              color: rgba(0, 0, 0, 0.6);
+            }
+            p {
+              color: rgba(0, 0, 0, 0);
+            }
+          }
+        }
+      }
+    }  
+    div.slick-slider:hover {
+      div.single-slide-container {
+        div.all-content {
+          div.text-content {
+            background: linear-gradient( 360deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5) 60% );
+            h3 {
+              color: rgba(0, 0, 0, 1);
+            }
+            p {
+              color: rgba(0, 0, 0, 1);
+            }
+          }
+        }
+      }
+    }  
+  }
+}

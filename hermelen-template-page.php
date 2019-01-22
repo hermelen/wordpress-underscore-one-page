@@ -5,7 +5,7 @@
 */
 get_header();?>
 
-	<div id="primary" class="content-area room">
+	<div class="content-area room">
 		<main id="main" class="site-main">
 
 		<?php

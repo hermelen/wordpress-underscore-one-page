@@ -7,7 +7,7 @@ get_header();
 get_template_part('template-parts/room-dating');
 ?>
 
-	<div id="primary" class="content-area room">
+	<div class="content-area room">
 		<main id="main" class="site-main">
 
 		<?php

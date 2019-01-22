@@ -12,7 +12,7 @@
  * @package hermelen-one-page
  */
 ?>
-	<div id="primary" class="content-area">
+	<div class="master content-area">
 
 		<?php
 		while ( have_posts() ) :
@@ -58,6 +58,6 @@
 		<?php endwhile; // End of the loop.
 		?>
 
-	</div><!-- #primary -->
+  </div><!-- #primary -->
 
 <?php

@@ -32,25 +32,21 @@
 				endif; ?>
 		</div>
 		<div class="header-slider">
-			<?php echo do_shortcode('[metaslider id="105"]'); ?>
+			<?php // echo do_shortcode('[metaslider id="105"]'); ?>
+			<?php // echo do_shortcode('[metaslider id="98"]'); ?>
 		</div><!-- .header-slider -->
 		<div class="site-branding">
 			<?php
 			the_custom_logo();
-			if ( is_front_page() ) :
-				?>
+			if ( is_front_page() ) : ?>
 				<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-				<?php
-			else :
-				?>
-				<p class="site-title"><?php bloginfo( 'name' ); ?></p>
-				<?php
-			endif;
-			$hermelen_one_page_description = get_bloginfo( 'description', 'display' );
-			if ( $hermelen_one_page_description || is_customize_preview() ) :
-				?>
-				<p class="site-description"><?php echo $hermelen_one_page_description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; ?>
+				<?php $hermelen_one_page_description = get_bloginfo( 'description', 'display' );
+				if ( $hermelen_one_page_description || is_customize_preview() ) : ?>
+					<p class="site-description"><?php echo $hermelen_one_page_description; /* WPCS: xss ok. */ ?></p>
+				<?php endif;
+			else : ?>
+				<h2 class="site-title"><?php bloginfo( 'name' ); ?></h2>
+			<?php	endif; ?>
 		</div><!-- .site-branding -->
 	</header><!-- #masthead -->
 

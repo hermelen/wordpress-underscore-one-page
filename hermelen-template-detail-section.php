@@ -11,13 +11,10 @@
  *
  * @package hermelen-one-page
  */
-$page_id = get_the_ID();
-
-// debug($children);
 
 ?>
-	<div id="primary" class="content-area">toto
-
+	<!-- <div id="primary" class="primary content-area"> -->
+	<div class="primary content-area">
 		<?php
 		while ( have_posts() ) :
 			the_post(); ?>
@@ -27,8 +24,33 @@ $page_id = get_the_ID();
 						the_title( '<h2 class="entry-title">', '</h2>' );
 					else :
 						the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
-					endif; ?>
+						endif; ?>
 				</header><!-- .entry-header -->
+				<?php 
+				if ( isset( get_post_meta( get_the_ID() )['slider'] ) ) :
+					$children = get_children( get_the_ID() );
+					if (isset($children) && !empty($children)) : ?>
+						  <div class="slider-container">
+						  	<div class="slick-slider">
+						  	<?php foreach ($children as $child) : ?>
+									<a href="<?php echo $child->guid ?>">
+										<div class="single-slide-container">
+											<div class="all-content">
+												<div class="text-content">
+													<h3><?php echo $child->post_title ?></h3>
+													<p><?php echo $child->post_excerpt ?></p>
+												</div>
+											</div>
+											<img src="<?php echo get_the_post_thumbnail_url($child->ID) ?>" alt="<?php echo $child->post_title ?>">								
+										</div>
+									</a>										
+						  	<?php endforeach ?>
+						  	</div>
+						  </div>
+						<?php	
+					endif;
+				endif; 
+				?>
 				<div class="entry-content">
 					<?php
 					the_content( sprintf(
@@ -50,35 +72,6 @@ $page_id = get_the_ID();
 					) );
 					?>
 				</div><!-- .entry-content -->
-				<div class="children-data"> <?php
-				// require_once(get_template_directory() . '/inc/micro-functions.php');
-	      $children = get_children(get_the_ID());
-				// debug($children);
-					if (isset($children) && !empty($children)) : ?>
-					<!-- <div class="slick-slider">
-					  <div style="background-color: white"><h4>1</h4></div>
-					  <div style="background-color: black"><h4>2</h4></div>
-					  <div style="background-color: grey"><h4>3</h4></div>
-					</div> -->
-					<div class="slider-container">
-						<div class="slick-slider">
-							<?php
-							foreach ($children as $child) : ?>
-							<div>
-								<img src="<?php echo get_the_post_thumbnail_url($child->ID) ?>" alt="<?= $child->post_title ?>">								
-								<a href="<?= $child->guid ?>">
-									<h4><?= $child->post_title ?></h4>
-									<p><?= $child->post_excerpt ?></p>
-								</a>
-							</div>
-							<?php
-							endforeach ?>
-						</div>
-					</div>
-					<?php
-					endif
-				?>
-				</div>
 
 		<?php endwhile; // End of the loop.
 		?>

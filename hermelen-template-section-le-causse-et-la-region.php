@@ -12,7 +12,7 @@
  * @package hermelen-one-page
  */
 ?>
-	<div id="primary" class="content-area">
+	<div class="master content-area">
 		<main id="main" class="site-main">
 
 		<?php
@@ -72,6 +72,6 @@
 		?>
 
 		</main><!-- #main -->
-	</div><!-- #primary -->
+		</div><!-- #primary -->
 
 <?php
