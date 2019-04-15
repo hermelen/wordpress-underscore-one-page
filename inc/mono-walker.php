@@ -11,6 +11,12 @@ class mono_walker extends Walker_Nav_Menu{
 
     $classes = empty( $item->classes ) ? array() : (array) $item->classes;
     $classes[] = 'menu-item-' . $item->ID;
+		if ($item->post_parent !== 0) {
+			$classes[] = 'menu-item-child';
+		}
+		else {
+			$classes[] = 'menu-item-parent';
+		}
 
     $class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
     $class_names = $class_names ? ' class="' . esc_attr( $class_names ) . '"' : '';
@@ -22,16 +28,18 @@ class mono_walker extends Walker_Nav_Menu{
     // this create href slugifying title
     $atts = array();
 
-    $atts['href']   = "#".sanitize_title($item->title);
+    $atts['href'] = site_url()."#".sanitize_title($item->title);
 
     $atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args );
 
     // this set href attribute with # anchor
     $attributes = '';
     foreach ( $atts as $attr => $value ) {
-       if ( ! empty( $value ) ) {
-           $attributes .= ' ' . $attr . '="' . $value . '"';
-       }
+      if ( ! empty( $value ) ) {
+				if ($item->post_parent !== 0 || $item->title === 'Accueil') {
+					$attributes .= ' ' . $attr . '="' . $value . '"';
+				}
+      }
     }
 
     // this generate anchor

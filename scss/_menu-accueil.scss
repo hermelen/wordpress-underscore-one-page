@@ -1,0 +1,97 @@
+div.discover, div.useful {
+  h3 {
+    text-align: center;
+    margin-bottom: 0;
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    li {
+      margin: 1em;
+      a {
+        width: 120px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        i {
+          font-size: 2em;
+        }
+        h4 {
+          text-align: center;
+          display: inline;
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+div.discover {
+  ul {
+    justify-content: center;
+    li {
+      a {
+        height: 120px;
+        color: $rgba-navbar-1;
+        box-shadow: 12px 6px $rgba-navbar-1;
+        &:hover {
+          color: white;
+          box-shadow: 12px 6px lightgrey;
+        }
+      }
+    }
+    li:nth-child(1) {
+      background-color: $rgba-tertiary-4;
+    }
+    li:nth-child(2) {
+      background-color: $rgba-tertiary-1;
+    }
+    li:nth-child(3) {
+      background-color: $rgba-tertiary-4;
+    }
+    li:nth-child(4) {
+      background-color: $rgba-tertiary-1;
+    }
+  }
+}
+
+div.useful {
+  ul {
+    justify-content: space-around;
+    li {
+      a {
+        color: $pink;
+        &:hover {
+          color: $brown;
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width: 960px) {
+  div.discover, div.useful {
+    ul {
+      li {
+        margin: 2em;
+        a {
+          width: 200px;
+          i {
+            font-size: 4em;
+          }
+        }
+      }
+    }
+  }
+
+  div.discover {
+    ul {
+      li {
+        a {
+          height: 200px;
+        }
+      }
+    }
+  }
+}

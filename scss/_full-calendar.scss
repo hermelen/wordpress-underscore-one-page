@@ -1,8 +1,37 @@
 #calendar-widget {
-  .fc-view-container table {
-    margin: 0;
-    .fc-time{
-      display : none;
+  .fc-left {
+    h2 {
+      margin-left: .2em;
     }
+  }
+  .fc-view-container {
+    .fc-view {
+      background-color: rgba(255, 2585, 255, 0.2);
+      table {
+        margin: 0;
+        a.fc-day-grid-event {
+          div.fc-content {
+            span.fc-time {
+              display : none;
+            }
+            span.fc-title {
+              white-space: normal;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and(min-width: 720px) {
+  section.calendar {
+    padding: 1em 10%;
+  }
+}
+
+@media screen and(min-width: 960px) {
+  section.calendar {
+    padding: 1em 20%;
   }
 }

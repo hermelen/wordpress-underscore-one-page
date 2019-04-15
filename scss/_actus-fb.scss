@@ -1,0 +1,42 @@
+// .fb-page.fb_iframe_widget.fb_iframe_widget_fluid {
+//   // display: flex;
+//   // justify-content: center;
+//   >span {
+//     width: 100% !important;
+//     display: flex;
+//     justify-content: center;
+//     >iframe {
+//       max-width: 270px !important;
+//       // display: flex;
+//       // justify-content: center;
+//     }
+//   }
+// }
+
+.fb-page.fb_iframe_widget {
+  text-align: center;
+  padding-bottom: 2em;
+}
+
+div.home-post-container {
+  margin-bottom: 2em;
+  div.home-post {
+    h4, p, a {
+      display: inline;
+    }
+    a.actu-link {
+      display: inline-block;
+      height: 1.7em;
+      padding: 0 1em;
+      background-color: $rgba-secondary-0;
+      color: $default;
+      font-size: 20px;
+      border: 1px solid;
+      border-color: #ccc #ccc #bbb;
+      border-radius: 5px;
+      &:hover {
+        background-color: $rgba-secondary-1;
+      }
+    }
+  }
+}

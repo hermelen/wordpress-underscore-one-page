@@ -30,5 +30,5 @@ $booked_days=json_encode($booked_days); ?>
 
 <script type="text/javascript">
   var bookedDays = <?= $booked_days ?>;
-  console.log(bookedDays);
+  console.log('template-parts/room-dating.php', bookedDays);
 </script>

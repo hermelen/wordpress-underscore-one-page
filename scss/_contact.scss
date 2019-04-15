@@ -1,0 +1,61 @@
+div.wpcf7 {
+  padding: 1em;
+  background-color: $rgba-tertiary-0;
+  border-radius: 5px;
+  form.wpcf7-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    label.inline {
+      display: flex;
+      height: 2em;
+      span.label {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        padding-left: .5em;
+        width: 6em;
+        background-color: rgba(255, 255, 255, .2);
+        border-radius: 5px 0 0 5px;
+      }
+      span.wpcf7-form-control-wrap {
+        width: 100%;
+        input, select {
+          height: 100%;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          background-color: rgba(255, 255, 255, .9);
+          border-radius: 0 5px 5px 0;
+        }
+      }
+    }
+    label.textarea {
+      textarea {
+        border-radius: 5px;
+      }
+    }
+    div.submit {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      input {
+        background-color: rgba(255, 255, 255, .2);
+        color: $vertdeau;
+        font-size: 20px;
+        &:hover {
+          background-color: rgba(255, 255, 255, .5);
+        }
+      }
+    }
+  }
+}
+
+section#contact {
+  div.wpcf7 {
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0px;
+  }
+}

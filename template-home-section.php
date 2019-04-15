@@ -21,6 +21,7 @@
 
 			<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 				<header class="entry-header">
+					<?php // if( wp_get_current_user()->ID === 1) { echo '<span class="info-temp-cursor">*<span class="info-temp">template-home-section</span></span>'; } ?>
 					<?php
 					if ( is_singular() ) :
 						the_title( '<h2 class="entry-title">', '</h2>' );
@@ -38,8 +39,6 @@
 						</div><!-- .entry-meta -->
 					<?php endif; ?>
 				</header><!-- .entry-header -->
-
-				<?php hermelen_one_page_post_thumbnail(); ?>
 
 				<div class="entry-content">
 					<?php
@@ -62,6 +61,7 @@
 					) );
 					?>
 				</div><!-- .entry-content -->
+				<?php	get_template_part( 'template-parts/custom-home-meta', 'Custom display by meta_key' ); ?>
 
 				<footer class="entry-footer">
 					<?php hermelen_one_page_entry_footer(); ?>

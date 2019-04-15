@@ -157,12 +157,35 @@ function hermelen_one_page_scripts() {
 	wp_enqueue_script( 'full-calendar-locale-scripts', get_template_directory_uri() . '/node_modules/fullcalendar/dist/locale/fr.js', array(), '20181211', true );
 	// custom hermelen scripts
 	wp_enqueue_script( 'app', get_template_directory_uri() . '/js/app.js', array(), '20181115', true );
+	// facebook scripts
+	wp_enqueue_script('facebook', 'https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v3.2&appId=1590158981073819&autoLogAppEvents=1' , array(), null, true );
+	// gmap scripts
+	// breadcrumb
+	require get_template_directory() . '/theme_config.php';
+	wp_enqueue_script('googleapis', esc_url( add_query_arg( 'key', $map_api.'&callback=initMap', '//maps.googleapis.com/maps/api/js' )), array(), null, true );
+	wp_enqueue_script( 'gmap-scripts', get_template_directory_uri() . '/js/map.js', array(), '20181115', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
 }
 add_action( 'wp_enqueue_scripts', 'hermelen_one_page_scripts' );
+
+
+
+function add_async_defer_attribute_to_gmap($tag, $handle) {
+	if ( 'googleapis' !== $handle )
+	return $tag;
+	return str_replace( ' src', ' async defer src', $tag );
+}
+add_filter('script_loader_tag', 'add_async_defer_attribute_to_gmap', 10, 2);
+
+function add_async_defer_attribute_to_fb($tag, $handle) {
+	if ( 'facebook' !== $handle )
+	return $tag;
+	return str_replace( ' src', ' async defer src', $tag );
+}
+add_filter('script_loader_tag', 'add_async_defer_attribute_to_fb', 10, 2);
 
 /**
  * Implement the Custom Header feature.
@@ -197,5 +220,7 @@ function debug($array) {
 	print_r($array);
 	echo "</pre>";
 }
-
+// custom one page navigation
 require get_template_directory() . '/inc/mono-walker.php';
+// breadcrumb
+require get_template_directory() . '/inc/breadcrumb.php';

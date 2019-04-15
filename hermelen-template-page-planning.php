@@ -1,15 +1,15 @@
 <?php
 /**
-* Template Name: Hermelen Page Room
+* Template Name: Hermelen Page Planning
 *
 */
 get_header();
-require ABSPATH . 'wp-content/plugins/wordpress-plugin-resa/room-dating-front-room.php';
+require ABSPATH . 'wp-content/plugins/wordpress-plugin-resa/room-dating-front-planning.php';
 ?>
 
 	<div class="content-area room">
 		<main id="main" class="site-main">
-			<?php // if( wp_get_current_user()->ID === 1) { echo '<span class="info-temp-cursor">*<span class="info-temp">hermelen-template-page-room</span></span>'; } ?>
+			<?php // if( wp_get_current_user()->ID === 1) { echo '<span class="info-temp-cursor">*<span class="info-temp">hermelen-template-planning</span></span>'; } ?>
 		<?php
 
 		while ( have_posts() ) :
@@ -24,9 +24,10 @@ require ABSPATH . 'wp-content/plugins/wordpress-plugin-resa/room-dating-front-ro
 
 		endwhile; // End of the loop.
 		?>
-
+		<section class="calendar">
+			<div id="calendar-widget"></div>
+		</section>
 		</main><!-- #main -->
-    <?php get_sidebar(); ?>
 	</div><!-- #primary -->
 
 <?php

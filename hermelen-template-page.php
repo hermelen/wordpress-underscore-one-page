@@ -3,12 +3,14 @@
 * Template Name: Hermelen Page
 *
 */
-get_header();?>
+get_header();
+?>
 
-	<div class="content-area room">
+	<div class="content-area">
 		<main id="main" class="site-main">
-
+			<?php // if( wp_get_current_user()->ID === 1) { echo '<span class="info-temp-cursor">*<span class="info-temp">hermelen-template-page</span></span>'; } ?>
 		<?php
+
 		while ( have_posts() ) :
 			the_post();
 

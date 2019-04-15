@@ -24,16 +24,12 @@
 <div id="page" class="site">
 	<header id="masthead" class="site-header">
 		<div class="site-main-nav">
-			<?php
-			if ( is_front_page() ) :
-				get_template_part( 'template-parts/one-page-nav', 'One page nav' );
-				else :
-					get_template_part( 'template-parts/page-nav', 'Detail page nav' );
-				endif; ?>
+			<div class="gtranslate">
+				<?php echo do_shortcode('[gtranslate]'); ?>
+			</div>
+			<?php	get_template_part( 'template-parts/one-page-nav', 'One page nav' ); ?>
 		</div>
 		<div class="header-slider">
-			<?php // echo do_shortcode('[metaslider id="105"]'); ?>
-			<?php // echo do_shortcode('[metaslider id="98"]'); ?>
 		</div><!-- .header-slider -->
 		<div class="site-branding">
 			<?php
@@ -43,11 +39,12 @@
 				<?php $hermelen_one_page_description = get_bloginfo( 'description', 'display' );
 				if ( $hermelen_one_page_description || is_customize_preview() ) : ?>
 					<p class="site-description"><?php echo $hermelen_one_page_description; /* WPCS: xss ok. */ ?></p>
-				<?php endif;
-			else : ?>
-				<h2 class="site-title"><?php bloginfo( 'name' ); ?></h2>
-			<?php	endif; ?>
+				<?php endif; ?>
+				<div>
+				  <img src="<?php echo( get_header_image() ); ?>" alt="<?php echo( get_bloginfo( 'title' ) ); ?>" />
+				</div>	
+			<?php endif; ?>
 		</div><!-- .site-branding -->
 	</header><!-- #masthead -->
-
-<div id="content" class="site-content">
+	<?php breadcrumb(); ?>
+  <div id="content" class="site-content">

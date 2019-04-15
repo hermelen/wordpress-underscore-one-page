@@ -17,15 +17,22 @@ div.slider-container {
       font-size: 1.5em;
       top: 45%;
       z-index:1;
-      opacity: 0;
-      padding: 0.5em 0.7em;
+      opacity: 1;
       border-radius: 50%;
     }
     i.slick-prev-custom {
       left: 0.1%;
+      padding-top: 0.5em;
+      padding-right: 0.8em;
+      padding-bottom: 0.5em;
+      padding-left: 0.1em;
     }
     i.slick-next-custom {
       right: 0.1%;
+      padding-top: 0.5em;
+      padding-right: 0.1em;
+      padding-bottom: 0.5em;
+      padding-left: 0.8em;
     }
     div.single-slide-container {
       position: relative;
@@ -59,30 +66,51 @@ div.slider-container {
         }
       }
     }
-  }  
+  }
   div.slick-slider:hover {
     i{
       opacity: 1;
       background-color: rgba(255, 255, 255, 0);
       transition-duration: 0.5s;
     }
-    i:hover{
-      background-color: rgba(255, 255, 255, 0.2);
-    }
     div.single-slide-container {
       position: relative;
       div.all-content {
         div.text-content {
-          
+
         }
       }
     }
-  }  
+  }
+}
+
+@media screen and(min-width: 540px) {
+  div.slider-container {
+    div.slick-slider {
+      i.slick-prev-custom {
+        left: 0.1%;
+        padding-top: 0.5em;
+        padding-right: 0.8em;
+        padding-bottom: 0.5em;
+        padding-left: 0.6em;
+      }
+      i.slick-next-custom {
+        right: 0.1%;
+        padding-top: 0.5em;
+        padding-right: 0.6em;
+        padding-bottom: 0.5em;
+        padding-left: 0.8em;
+      }
+    }
+  }
 }
 
 @media screen and(min-width: 960px) {
   div.slider-container {
     div.slick-slider {
+      i {
+        opacity: 0;
+      }
       div.single-slide-container {
         div.all-content {
           background: linear-gradient( 360deg, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.0) 60% );
@@ -96,8 +124,14 @@ div.slider-container {
           }
         }
       }
-    }  
+    }
     div.slick-slider:hover {
+      i {
+        opacity: 1;
+      }
+      i:hover{
+        background-color: rgba(255, 255, 255, 0.2);
+      }
       div.single-slide-container {
         div.all-content {
           div.text-content {
@@ -111,6 +145,6 @@ div.slider-container {
           }
         }
       }
-    }  
+    }
   }
 }
